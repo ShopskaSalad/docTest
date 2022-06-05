@@ -6,13 +6,13 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
+  title: 'Pay with iyzico',
+  tagline: 'Alternative Payment Method',
   url: 'https://your-docusaurus-test-site.com',
   baseUrl: '/',
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'ignore',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/pay_with_iyzico_colored.svg',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -51,16 +51,34 @@ const config = {
         },
       }),
     ],
+    [
+      'redocusaurus',
+      {
+        // Plugin Options for loading OpenAPI files
+        specs: [
+          {
+            // spec: 'openapi/swagger.yaml',
+            spec: 'openapi/swagger.yml',
+            route: '/api/',
+          },
+        ],
+        // Theme Options for modifying how redoc renders them
+        theme: {
+          // Change with your site colors
+          primaryColor: '#1890ff',
+        },
+      },
+    ]
   ],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'My Site',
+        // title: 'My Site',
         logo: {
           alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          src: 'img/pay_with_iyzico_colored.svg',
         },
         items: [
           {
@@ -69,54 +87,93 @@ const config = {
             position: 'left',
             label: 'Tutorial',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/facebook/docusaurus',
-            label: 'GitHub',
+            href: 'https://github.com/iyzico',
+            docId: 'intro',
             position: 'right',
+            label: 'Github',
           },
+          {to: '/api', label: 'API Reference', position: 'left'},
         ],
       },
       footer: {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: 'Company',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
+                label: 'About',
+                href: 'https://www.iyzico.com/en',
               },
+              {
+                label: 'Career',
+                href: 'https://www.iyzico.com/en/about-us/career',
+              },
+              {
+                label: 'Pay with iyzico',
+                href: 'https://www.iyzico.com/en/business/pay-with-iyzico'
+              },
+              {
+                label: 'Social',
+                href: 'https://www.iyzico.com/en/about-us/social-responsibilty',
+              },
+              {
+                label: 'Youtube',
+                href: 'https://www.youtube.com/channel/UCk4iPbGOno3mTSWEvQ1Rk5Q/featured',
+              }
             ],
           },
           {
             title: 'Community',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+                label: 'Developer Page',
+                href: 'https://dev.iyzipay.com/en',
               },
               {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
+                label: 'Github',
+                href: 'https://github.com/iyzico',
               },
               {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
-              },
+                label: 'Medium',
+                href: 'https://iyzico.engineering/',
+              }
             ],
           },
           {
-            title: 'More',
+            title: 'Integration',
             items: [
               {
-                label: 'Blog',
-                to: '/blog',
+                label: 'Brand Guide',
+                href: 'https://www.iyzico.com/en/about-us/iyzico-brand-guide',
               },
               {
-                label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                label: 'Solution Partners',
+                href: 'https://www.iyzico.com/en/readyIntegration',
               },
+              {
+                label: 'Open Source',
+                href: 'https://www.iyzico.com/en/open-source',
+              }  
+  
+            ],
+          },
+          {
+            title: 'Contact',
+            items: [
+              {
+                label: 'Contact Us',
+                href: 'https://www.iyzico.com/en/support/contact-us',
+              },
+              {
+                label: 'Support Center',
+                href: 'https://www.iyzico.com/en/support/help-center',
+              },
+              // {
+              //   label: 'Blog',
+              //   to: '/blog',
+              // },
             ],
           },
         ],
