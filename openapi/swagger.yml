@@ -6,61 +6,57 @@ servers:
     description: Sandbox server
 info:
   description: |
-    This is a sample server Petstore server.
-    You can find out more about Swagger at
-    [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).
-    For this sample, you can use the api key `special-key` to test the authorization filters.
-
-    # Introduction
-    This API is documented in **OpenAPI format** and is based on
-    [Petstore sample](http://petstore.swagger.io/) provided by [swagger.io](http://swagger.io) team.
-    It was **extended** to illustrate features of [generator-openapi-repo](https://github.com/Rebilly/generator-openapi-repo)
-    tool and [ReDoc](https://github.com/Redocly/redoc) documentation. In addition to standard
-    OpenAPI syntax we use a few [vendor extensions](https://github.com/Redocly/redoc/blob/master/docs/redoc-vendor-extensions.md).
-
-    # OpenAPI Specification
-    This API is documented in **OpenAPI format** and is based on
-    [Petstore sample](http://petstore.swagger.io/) provided by [swagger.io](http://swagger.io) team.
-    It was **extended** to illustrate features of [generator-openapi-repo](https://github.com/Rebilly/generator-openapi-repo)
-    tool and [ReDoc](https://github.com/Redocly/redoc) documentation. In addition to standard
-    OpenAPI syntax we use a few [vendor extensions](https://github.com/Redocly/redoc/blob/master/docs/redoc-vendor-extensions.md).
-
-    # Cross-Origin Resource Sharing
-    This API features Cross-Origin Resource Sharing (CORS) implemented in compliance with  [W3C spec](https://www.w3.org/TR/cors/).
-    And that allows cross-domain communication from the browser.
-    All responses have a wildcard same-origin which makes them completely public and accessible to everyone, including any code on any site.
+    # Intro
+    The iyzico API has been developed to support merchants with extended online payment services and can be easily integrated into existing platforms. <br/>
+    All services are based on a stateless RESTful service architecture that requires API clients to access these services.
 
     # Authentication
+    iyzico APIs requires two pairs of credentials.
+    - `apiKey`
+    - `secretKey`
+    <SecurityDefinitions/>
 
-    Petstore offers two forms of authentication:
-      - API Key
-      - OAuth2
-    OAuth2 - an open protocol to allow secure authorization in a simple
-    and standard method from web, mobile and desktop applications.
+    # Authorization
+    - pkiString
+    - v1
+    - v2
 
-    <SecurityDefinitions />
+    # Live vs Sandbox
+    Our ENVs are exactly same regarding architecture. <br/>
+    The only difference between our LIVE and Sandbox ENVs is URL paths on your API call.
+
+    | **LIVE ENV URL Path**   | **Sandbox ENV URL Path**        |
+    |-------------------------|---------------------------------|
+    | https://api.iyzipay.com | https://sandbox-api.iyzipay.com |
+
+    # Errors
+    Following table represents format of error variables. <br/>
+    Case includes "status":"failure" once iyzico PaymentAPI respond with error.  
+    | **Key**      | **Value**                      |
+    |--------------|--------------------------------|
+    | errorCode    | Sample: 10051                  |
+    | errorGroup   | Sample: NOT_SUFFICIENT _ FUNDS |
+    | errorName    | Sample: Error                  |
+    | errorMessage | Sample: Insufficient funds     |
+
+    > Please consider that only processed trx will cover up **4** variables. <br/>
+    > Depending on the error type, some of the variables will not be appear. <br/>
+    > For an instance, validation errors comes with `errorCode` and `errorMessage`.
+
   version: 1.0.0
-  title: Swagger Petstore
-  termsOfService: 'http://swagger.io/terms/'
+  title: PWI API
   contact:
     name: API Support
-    email: apiteam@swagger.io
-    url: https://github.com/Redocly/redoc
+    email: integration@iyzico.com
   x-logo:
     url: 'https://www.iyzico.com/assets/images/content/logo.svg?v=v4.0.199'
-  license:
-    name: Apache 2.0
-    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
-externalDocs:
-  description: Find out how to create Github repo for your OpenAPI spec.
-  url: 'https://github.com/Rebilly/generator-openapi-repo'
 tags:
   # - name: pet
   #   description: Everything about your Pets
   # - name: store
   #   description: Access to Petstore orders
   - name: Pwi
-    description: Access to Petstore orders
+    description: Wallet solution of iyzico.
   - name: Refund
     description: Refund orders
   - name: Cancel
@@ -1757,23 +1753,17 @@ components:
       description: List of user object
       required: true
   securitySchemes:
-    petstore_auth:
-      description: |
-        Get access to data while protecting your account credentials.
-        OAuth2 is also a safer and more secure way to give you access.
-      type: oauth2
-      flows:
-        implicit:
-          authorizationUrl: 'http://petstore.swagger.io/api/oauth/dialog'
-          scopes:
-            'write:pets': modify pets in your account
-            'read:pets': read your pets
-    api_key:
+    apiKey:
       description: >
-        For this sample, you can use the api key `special-key` to test the
-        authorization filters.
+        Your private API key.
       type: apiKey
-      name: api_key
+      name: apiKey
+      in: header
+    secretKey:
+      description: >
+        Your private SECRET key.
+      type: apiKey
+      name: secretKey
       in: header
   examples:
     Order:
