@@ -5,31 +5,32 @@ import styles from './styles.module.css';
 const FeatureList = [
   {
     title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    Svg: require('@site/static/img/docSafe1-1.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Designed to be integrate easily.<br></br>
+        Accept payments with single POST request.
       </>
     ),
   },
   {
     title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    Svg: require('@site/static/img/docFocus1-1.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        With PWI, merchants save huge amount of energy. <br></br> 
+        Validation, infrastructure checks, or even design. <br></br>
+        Redirect to the page, that is it.
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: 'Secured by iyzico',
+    Svg: require('@site/static/img/docIntegrate1-1.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Secure payment infrastructure, 24/7 live support.<br></br> 
+        Plus, ease in cancellations/refunds processes.
       </>
     ),
   },
@@ -38,6 +39,9 @@ const FeatureList = [
 function Feature({Svg, title, description}) {
   return (
     <div className={clsx('col col--4')}>
+      <br></br>
+      <br></br>
+      <br></br>
       <div className="text--center">
         <Svg className={styles.featureSvg} role="img" />
       </div>
