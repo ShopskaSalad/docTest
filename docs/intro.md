@@ -1,47 +1,79 @@
 ---
+title: PWI Developer Doc
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+## Intro
 
-Let's discover **Docusaurus in less than 5 minutes**.
+Welcome to the PWI Developer Page.<br/>
+A doc with single objective, easy integration.<br/>
 
-## Getting Started
+## Overview
+PWI integration consists of 3(three) major sections.
 
-Get started by **creating a new site**.
+import '../src/css/grid.css'
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+<div class="grid-container">
+  <div class="card">
+    <div class="content">
+      <a href="tutorial-basics/setting-up-a-sandbox"><h4>Getting Started</h4></a>
+      <h6> First Section</h6> 
+    </div>
+  </div>
+  <div class="card">
+    <div class="content">
+      <a href="api/pwi"><h4>Api</h4></a>
+      <h6> Second Section</h6> 
+    </div>
+  </div>
+  <div class="card">
+    <div class="content">
+      <a href="tutorial-basics/making-your-first-test-payment"><h4>Advanced</h4></a>
+      <h6> Third Section</h6>  
+    </div>
+  </div>
+</div>
 
-### What you'll need
+## Integration Flow
+Following chart illustrates recommended implementation.<br/>
 
-- [Node.js](https://nodejs.org/en/download/) version 14 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+![integration-flow](/img/integration-flow.svg)
 
-## Generate a new site
 
-Generate a new Docusaurus site using the **classic template**.
+### Getting Started
+Configurations phase.<br/>
+Step by step;<br/>
 
-The classic template will automatically be added to your project after you run the command:
+- [Setting up a Sandbox Account](./setting-up-a-sandbox)
+- [Checking Postman Collection](./checking-postman-collection) 
+- [Making Your First Test Payment](./making-your-first-test-payment) 
 
-```bash
-npm init docusaurus@latest my-website classic
-```
+Briefly, test credentials, sample payloads and a payment illustration.
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+### Api
+Development phase.<br/>
+Accurate way of understanding PWI api.
+- [Pwi](./Pwi)
+- [Pwi API Reference - External Link](./checking-postman-collection) 
 
-The command also installs all necessary dependencies you need to run Docusaurus.
+### Advanced
+Deployment phase.<br/>
+Theoretically, finish line.
+- [Webhooks](./Webhook)
+- [Refund & Cancel](./refund-and-cancel) 
+- [Integration Checklist](./integration-checklist) 
+- [Live Checklist](./live-checklist) 
 
-## Start your site
+We can start accepting payments after Live Checklist.
 
-Run the development server:
+### References
+Kind of juice bar with all the useful content;
+- [PWI Demo](https://www.iyzico.com/demo/)
+- [PWI Link Generate](https://gitbook-pwi.herokuapp.com/) 
+- [Test Cards](https://dev.iyzipay.com/en/test-kartlari) 
+- [Error Codes](https://dev.iyzipay.com/en/hata-kodlari) 
+- [Github Repos](https://github.com/iyzico) 
 
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+## Notion
+Do you have questions?<br/>Please notify us from any channel on the footer. <br/><br/>
+Happy coding!
